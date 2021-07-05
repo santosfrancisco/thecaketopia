@@ -1,0 +1,9 @@
+{
+  "createReactTSXComponent.fileExtension": "jsx",
+  "editor.formatOnSave": true,
+  "[javascriptreact]": {
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
