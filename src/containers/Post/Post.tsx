@@ -20,9 +20,9 @@ export default function Post({ post, morePosts, preview }) {
     return <ErrorPage statusCode={404} />;
   }
   return (
-    <Layout preview={preview}>
+    <Layout>
       <div>
-        {/* <Header /> */}
+        <Header />
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
@@ -34,21 +34,19 @@ export default function Post({ post, morePosts, preview }) {
                 </title>
                 {/* <meta property="og:image" content={post.ogImage.url} /> */}
               </Head>
-              <h1>{post.title}</h1>
-              <p>{post.excerpt}</p>
-              {/* <PostHeader
+              <PostHeader
                 title={post.title}
                 coverImage={post.coverImage}
                 date={post.date}
                 author={post.author}
-              /> */}
-              {/* <PostBody content={post.body} /> */}
+              />
+              <PostBody content={post.body} />
             </article>
 
-            {/* <Comments comments={post.comments} />
+            <Comments comments={post.comments} />
             <Form _id={post._id} />
 
-            <SectionSeparator /> */}
+            <SectionSeparator />
             {/* {morePosts.length > 0 && <MoreStories posts={morePosts} />} */}
           </>
         )}
