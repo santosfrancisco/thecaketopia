@@ -2,7 +2,7 @@ import React from "react";
 
 import { Container } from "./styles";
 
-import Footer from "./footer";
+import Footer from "./Footer";
 import Meta from "../meta";
 import Navbar from "../Navbar";
 
