@@ -1,5 +1,3 @@
-// import Container from "../container";
-import { AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
 import styled from "styled-components";
 
 const Copyright = styled.span`
@@ -14,24 +12,18 @@ const Copyright = styled.span`
 const StyledFooter = styled.footer`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   height: 50px;
   margin-top: 24px;
 `;
 
-export default function Footer() {
+const StyledLink = styled.a``;
+
+export default function Footer({ author }) {
   return (
     <StyledFooter>
       <Copyright>©2021 Karina Mesquita</Copyright>
-      <div>
-        <a href="#">
-          <AiFillInstagram size={30} color="#9774CC" />
-        </a>
-        <a href="#">
-          <AiFillLinkedin size={30} color="#9774CC" />
-        </a>
-      </div>
     </StyledFooter>
   );
 }

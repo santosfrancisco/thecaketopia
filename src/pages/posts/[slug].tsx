@@ -2,7 +2,6 @@ import React from "react";
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import Layout from "../../components/Layout";
-import PostTitle from "../../components/post-title";
 import Post from "../../containers/Post";
 import { getAllPostsWithSlug, getPostAndMorePosts } from "../../../lib/api";
 
@@ -13,11 +12,7 @@ export default function PostPage({ post, morePosts, preview }) {
   }
   return (
     <Layout>
-      {router.isFallback ? (
-        <PostTitle>Loading…</PostTitle>
-      ) : (
-        <Post post={post} />
-      )}
+      {router.isFallback ? <p>Loading…</p> : <Post post={post} />}
     </Layout>
   );
 }

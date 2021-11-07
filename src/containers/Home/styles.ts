@@ -12,6 +12,9 @@ export const PostsWrapper = styled.div`
         right: -80px;
         left: 0;
       }
+      .post-preview__actions {
+        justify-content: flex-start;
+      }
     }
   `}
 `;

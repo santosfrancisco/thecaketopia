@@ -6,13 +6,13 @@ import { imageBuilder } from "../../../lib/sanity";
 import * as Styled from "./styles";
 import React from "react";
 import { colors } from "../../styles/colors";
+import Share from "../Share";
 
 export default function PostPreview({
   title,
   coverImage,
   date,
   excerpt,
-  author,
   slug,
 }) {
   return (
@@ -21,7 +21,6 @@ export default function PostPreview({
         <CoverImage
           slug={slug}
           title={title}
-          imageObject={coverImage}
           url={imageBuilder(coverImage).width(640).height(480).url()}
         />
       </Styled.CoverImageWrapper>
@@ -37,18 +36,7 @@ export default function PostPreview({
           </Styled.Title>
           <Styled.Excerpt>{excerpt}</Styled.Excerpt>
           <div>
-            <Styled.ActionsWrapper>
-              <div style={{ display: "flex", gap: 8 }}>
-                <a href="#">
-                  <FaFacebook size={24} color={colors.primary} />
-                </a>
-                <a href="#">
-                  <FaTwitter size={24} color={colors.primary} />
-                </a>
-                <a href="#">
-                  <FaWhatsapp size={24} color={colors.primary} />
-                </a>
-              </div>
+            <Styled.ActionsWrapper className="post-preview__actions">
               <Link as={`/posts/${slug}`} href="/posts/[slug]">
                 <Styled.Button>Ler</Styled.Button>
               </Link>

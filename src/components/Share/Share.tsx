@@ -1,17 +1,15 @@
 import React from "react";
 import { colors } from "../../styles/colors";
-import { FiMail } from "react-icons/fi";
 import { BsLinkedin, BsFacebook, BsTwitter, BsWhatsapp } from "react-icons/bs";
 import * as Styled from "./styles";
+import CopyToClipboard from "../CopyToClipboard";
 
 const Share = ({ post }) => {
   const [href, sethref] = React.useState("");
-  const [origin, setOrigin] = React.useState("");
 
   React.useEffect(() => {
     if (typeof window !== "undefined") {
       sethref(window.location.href);
-      setOrigin(window.location.origin);
     }
   }, []);
 
@@ -21,21 +19,8 @@ const Share = ({ post }) => {
 
   const linkedInShareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${href}&title=${post.title}`;
 
-  const mailShareUrl = `mailto:?subject=${post.title}&body=${href}`;
-
-  // let pinterestShareUrl = `https://www.pinterest.com/pin/create/button/?url=${href}&description=${post.title}`;
-  // if (
-  //   data.ghostPost.localFeatureImage &&
-  //   data.ghostPost.localFeatureImage.publicURL
-  // ) {
-  //   pinterestShareUrl += `&media=${
-  //     origin + data.ghostPost.localFeatureImage.publicURL
-  //   }`;
-  // }
-
   const whatsAppShareUrl = `https://wa.me/?text=${encodeURIComponent(href)}`;
 
-  // const postContentRef = React.useRef();
   return (
     <section>
       <Styled.Container>
@@ -43,59 +28,41 @@ const Share = ({ post }) => {
         <Styled.SocialLink
           target="_blank"
           rel="noopener noreferrer"
-          title="Twitter"
-          className="twitter"
-          href={twitterShareUrl}
-        >
-          <BsTwitter size={32} color={colors.secondary} />
-        </Styled.SocialLink>
-        <Styled.SocialLink
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Facebook"
+          title="Compartilhar no Facebook"
           className="facebook"
           href={facebookShareUrl}
         >
-          <BsFacebook size={32} color={colors.secondary} />
+          <BsFacebook size={24} color={colors.primary} />
         </Styled.SocialLink>
         <Styled.SocialLink
           target="_blank"
           rel="noopener noreferrer"
-          title="LinkedIn"
+          title="Compartilhar no LinkedIn"
           className="linkedin"
           href={linkedInShareUrl}
         >
-          <BsLinkedin size={32} color={colors.secondary} />
+          <BsLinkedin size={24} color={colors.primary} />
         </Styled.SocialLink>
-        {/* <a
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Pinterest"
-          className="pinterest"
-          href={pinterestShareUrl}
-        >
-          <i className="icon icon-pinterest"></i>
-          <span className="hidden">Pinterest</span>
-        </a> */}
         <Styled.SocialLink
           target="_blank"
           rel="noopener noreferrer"
-          title="WhatsApp"
+          title="Compartilhar no WhatsApp"
           className="whatsapp"
           href={whatsAppShareUrl}
         >
-          <BsWhatsapp size={32} color={colors.secondary} />
+          <BsWhatsapp size={24} color={colors.primary} />
         </Styled.SocialLink>
+
         <Styled.SocialLink
           target="_blank"
           rel="noopener noreferrer"
-          title="Email"
-          className="email"
-          href={mailShareUrl}
+          title="Compartilhar no Twitter"
+          className="twitter"
+          href={twitterShareUrl}
         >
-          <FiMail size={34} color={colors.secondary} />
+          <BsTwitter size={24} color={colors.primary} />
         </Styled.SocialLink>
-        {/* <CopyLink textToCopy={href} /> */}
+        <CopyToClipboard textToCopy={href} />
       </Styled.Container>
     </section>
   );

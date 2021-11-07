@@ -40,7 +40,6 @@ const Home: React.FC<HomeProps> = ({ posts }) => {
         {posts.map((post) => (
           <PostPreview
             key={post.slug}
-            author={post.author}
             date={post.date}
             excerpt={post.excerpt}
             coverImage={post.coverImage}

@@ -1,7 +1,5 @@
-// import Avatar from "./avatar";
 import Date from "../Date";
 import CoverImage from "../CoverImage";
-import PostTitle from "../post-title";
 import * as Styled from "./styles";
 
 const PostHeader = ({ title, coverImage, date }) => {
