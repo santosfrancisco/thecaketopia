@@ -1,7 +1,15 @@
 import Head from "next/head";
-import { CMS_NAME, HOME_OG_IMAGE_URL } from "../../lib/constants";
+import { HOME_OG_IMAGE_URL } from "../../../lib/constants";
+import { imageBuilder } from "../../../lib/sanity";
 
-export default function Meta() {
+type MetaProps = {
+  post?: any;
+};
+
+export default function Meta({ post }: MetaProps) {
+  const shareImage = post?.coverImage
+    ? imageBuilder(post?.coverImage).width(280).height(150).url()
+    : HOME_OG_IMAGE_URL;
   return (
     <Head>
       <link
@@ -32,11 +40,15 @@ export default function Meta() {
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+      <meta property="og:title" content={post?.title ?? "Caketopia"} />
       <meta
-        name="description"
-        content={`A statically generated blog example using Next.js and Sanity.io.`}
+        property="og:description"
+        content={post?.excerpt ?? "Gastronomia e confeitaria"}
       />
-      <meta property="og:image" content={HOME_OG_IMAGE_URL} />
+      <meta property="og:image" content={shareImage} />
+
+      {/* <!-- Twitter --/> */}
+      <meta name="twitter:card" content="summary_large_image" />
     </Head>
   );
 }

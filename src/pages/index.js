@@ -2,6 +2,7 @@ import Layout from "../components/Layout";
 import { getAllPostsForHome } from "../../lib/api";
 import Head from "next/head";
 import Home from "../containers/Home";
+import Meta from "../components/Meta";
 
 export default function Index({ allPosts, preview }) {
   return (
@@ -10,6 +11,7 @@ export default function Index({ allPosts, preview }) {
         <Head>
           <title>The Caketopia</title>
         </Head>
+        <Meta />
         <Home posts={allPosts} />
       </Layout>
     </>

@@ -11,7 +11,9 @@ import Layout from "../../components/Layout";
 import { getAllPostsWithSlug, getPostAndMorePosts } from "../../../lib/api";
 import PostTitle from "../../components/post-title";
 import Head from "next/head";
-import { CMS_NAME } from "../../../lib/constants";
+import { imageBuilder } from "../../../lib/sanity";
+import React from "react";
+import Meta from "../../components/Meta";
 // import Form from "../../components/form";
 
 export default function Post({ post, morePosts, preview }) {
@@ -20,7 +22,7 @@ export default function Post({ post, morePosts, preview }) {
     return <ErrorPage statusCode={404} />;
   }
   return (
-    <Layout preview={preview}>
+    <Layout>
       <div>
         {/* <Header /> */}
         {router.isFallback ? (
@@ -29,27 +31,22 @@ export default function Post({ post, morePosts, preview }) {
           <>
             <article>
               <Head>
-                <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
-                </title>
-                {/* <meta property="og:image" content={post.ogImage.url} /> */}
+                <title>{post.title} | Caketopia</title>
+                {/* <meta
+                  property="og:image"
+                  content={imageBuilder(post.coverImage)
+                    .width(640)
+                    .height(480)
+                    .url()}
+                /> */}
               </Head>
+              <Meta post={post} />
+              <img
+                src={imageBuilder(post.coverImage).width(640).height(480).url()}
+              />
               <h1>{post.title}</h1>
               <p>{post.excerpt}</p>
-              {/* <PostHeader
-                title={post.title}
-                coverImage={post.coverImage}
-                date={post.date}
-                author={post.author}
-              /> */}
-              {/* <PostBody content={post.body} /> */}
             </article>
-
-            {/* <Comments comments={post.comments} />
-            <Form _id={post._id} />
-
-            <SectionSeparator /> */}
-            {/* {morePosts.length > 0 && <MoreStories posts={morePosts} />} */}
           </>
         )}
       </div>

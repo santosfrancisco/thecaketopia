@@ -3,13 +3,11 @@ import React from "react";
 import { Container } from "./styles";
 
 import Footer from "./Footer";
-import Meta from "../meta";
 import Navbar from "../Navbar";
 
 function Layout({ children }) {
   return (
     <Container>
-      <Meta />
       <Navbar />
       <div>
         <main>{children}</main>
