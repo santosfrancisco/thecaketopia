@@ -9,11 +9,19 @@ const Navbar = () => {
   return (
     <Styled.Container>
       <div>
-        <img src="/Logo.svg" style={{ width: 24, height: 38 }} />
+        <Link href="/">
+          <a aria-label="Início">
+            <img src="/Logo.svg" style={{ width: 24, height: 38 }} />
+          </a>
+        </Link>
       </div>
       <div>
         <Link href="/">
-          <Styled.MenuItem active={router.pathname === "/"}>
+          <Styled.MenuItem
+            active={
+              router.pathname === "/" || router.pathname.startsWith("/posts")
+            }
+          >
             Blog
           </Styled.MenuItem>
         </Link>

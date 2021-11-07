@@ -26,15 +26,6 @@ export const Hightlight = styled.span`
   color: var(--secondary-color);
 `;
 
-export const Text = styled.p`
-  font-size: 16px;
-  line-height: 19px;
-  color: var(--primary-color);
-  max-width: 526px;
-  align-self: center;
-  margin-bottom: 24px;
-`;
-
 export const SocialWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -42,3 +33,25 @@ export const SocialWrapper = styled.div`
 `;
 
 export const Link = styled.a``;
+
+export const BioContent = styled.div`
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--primary-color);
+  max-width: 526px;
+  align-self: center;
+  margin-bottom: 24px;
+
+  strong {
+    font-weight: bold;
+  }
+
+  em,
+  i {
+    font-style: italic;
+  }
+
+  a {
+    color: var(--secondary-color);
+  }
+`;

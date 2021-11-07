@@ -1,55 +1,23 @@
+import React from "react";
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
-// import Container from "../../components/Container";
-// import PostBody from "../../components/post-body";
-// import MoreStories from "../../components/more-stories";
-// import Header from "../../components/header";
-// import PostHeader from "../../components/post-header";
-// import Comments from "../../components/comments";
-// import SectionSeparator from "../../components/section-separator";
 import Layout from "../../components/Layout";
-import { getAllPostsWithSlug, getPostAndMorePosts } from "../../../lib/api";
 import PostTitle from "../../components/post-title";
-import Head from "next/head";
-import { imageBuilder } from "../../../lib/sanity";
-import React from "react";
-import Meta from "../../components/Meta";
-// import Form from "../../components/form";
+import Post from "../../containers/Post";
+import { getAllPostsWithSlug, getPostAndMorePosts } from "../../../lib/api";
 
-export default function Post({ post, morePosts, preview }) {
+export default function PostPage({ post, morePosts, preview }) {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
   return (
     <Layout>
-      <div>
-        {/* <Header /> */}
-        {router.isFallback ? (
-          <PostTitle>Loading…</PostTitle>
-        ) : (
-          <>
-            <article>
-              <Head>
-                <title>{post.title} | Caketopia</title>
-                {/* <meta
-                  property="og:image"
-                  content={imageBuilder(post.coverImage)
-                    .width(640)
-                    .height(480)
-                    .url()}
-                /> */}
-              </Head>
-              <Meta post={post} />
-              <img
-                src={imageBuilder(post.coverImage).width(640).height(480).url()}
-              />
-              <h1>{post.title}</h1>
-              <p>{post.excerpt}</p>
-            </article>
-          </>
-        )}
-      </div>
+      {router.isFallback ? (
+        <PostTitle>Loading…</PostTitle>
+      ) : (
+        <Post post={post} />
+      )}
     </Layout>
   );
 }

@@ -1,15 +1,20 @@
 import Link from "next/link";
 // import { imageBuilder } from "../../../lib/sanity";
 
-export default function CoverImage({ title, url, imageObject, slug }) {
+type CoverImageProps = {
+  title: string;
+  url: string;
+  slug?: string;
+};
+
+export default function CoverImage({ title, url, slug }: CoverImageProps) {
   const image = (
     <img
       // width={1240}
       // height={540}
       alt={`Cover Image for ${title}`}
-      style={{ width: "100%" }}
+      style={{ width: "100%", minHeight: 258, objectFit: "cover" }}
       src={url}
-      // src={imageBuilder(imageObject).width(640).height(480).url()}
     />
   );
 

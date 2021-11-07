@@ -8,7 +8,7 @@ export const Container = styled.nav`
   margin-bottom: 24px;
 `;
 
-export const MenuItem = styled.a`
+export const MenuItem = styled.a<{ active?: boolean }>`
   cursor: pointer;
 
   font-size: 14px;

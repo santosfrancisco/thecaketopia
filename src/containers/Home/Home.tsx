@@ -1,7 +1,6 @@
 import React from "react";
 import * as Styled from "./styles";
 import HomeHeader from "../../components/HomeHeader";
-import PostItem from "../../components/PostItem";
 import PostPreview from "../../components/PostPreview";
 import styled from "styled-components";
 import { PostInfoContent } from "../../components/PostPreview/styles";
