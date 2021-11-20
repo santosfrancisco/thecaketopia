@@ -8,7 +8,6 @@ import {
 import BlockContent from "@sanity/block-content-to-react";
 
 function About({ author }) {
-  console.log("🚀 ~ file: About.tsx ~ line 10 ~ About ~ author", author);
   return (
     <Styled.Container>
       <Styled.ProfileImageWrapper>

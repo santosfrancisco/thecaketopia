@@ -12,7 +12,11 @@ export default function PostPage({ post, morePosts, preview }) {
   }
   return (
     <Layout>
-      {router.isFallback ? <p>Loading…</p> : <Post post={post} />}
+      {router.isFallback ? (
+        <p>Loading…</p>
+      ) : (
+        <Post post={post} morePosts={morePosts} />
+      )}
     </Layout>
   );
 }

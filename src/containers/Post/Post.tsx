@@ -2,11 +2,10 @@ import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 // import Container from "../../components/Container";
 import PostBody from "../../components/PostBody";
-// import MoreStories from "../../components/more-stories";
+import MoreStories from "../../components/more-stories";
 import PostHeader from "../../components/PostHeader";
 import Comments from "../../components/comments";
 import Layout from "../../components/Layout";
-import { getAllPostsWithSlug, getPostAndMorePosts } from "../../../lib/api";
 import Head from "next/head";
 import Form from "../../components/form";
 import { imageBuilder } from "../../../lib/sanity";
@@ -15,7 +14,7 @@ import Meta from "../../components/Meta";
 import Share from "../../components/Share";
 import { Separator } from "../../components/Separator/Separator";
 
-const Post = ({ post }) => {
+const Post = ({ post, morePosts }) => {
   // const router = useRouter();
   // if (!router.isFallback && !post?.slug) {
   //   return <ErrorPage statusCode={404} />;
@@ -36,12 +35,16 @@ const Post = ({ post }) => {
       </article>
       <Separator />
       <Share post={post} />
+      <Separator />
+      {morePosts.length > 0 && (
+        <>
+          <MoreStories posts={morePosts} />
+          <Separator />
+        </>
+      )}
 
-      {/* <Comments comments={post.comments} /> */}
-      {/* <Form _id={post._id} /> */}
-
-      {/* <SectionSeparator /> */}
-      {/* {morePosts.length > 0 && <MoreStories posts={morePosts} />} */}
+      <Comments comments={post.comments} />
+      <Form _id={post._id} />
     </>
   );
 };

@@ -1,20 +1,12 @@
-import PostPreview from "./post-preview";
+import PostPreview from "./PostPreview";
 
 export default function MoreStories({ posts }) {
   return (
     <section>
       <h2>More Stories</h2>
-      <div>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
         {posts.map((post) => (
-          <PostPreview
-            key={post.slug}
-            title={post.title}
-            coverImage={post.coverImage}
-            date={post.date}
-            author={post.author}
-            slug={post.slug}
-            excerpt={post.excerpt}
-          />
+          <span>{post.title}</span>
         ))}
       </div>
     </section>
