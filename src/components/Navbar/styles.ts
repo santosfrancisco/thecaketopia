@@ -6,6 +6,10 @@ export const Container = styled.nav`
   justify-content: space-between;
   height: 50px;
   margin-bottom: 24px;
+  a {
+    text-decoration: none;
+    color: var(--primary-color);
+  }
 `;
 
 export const MenuItem = styled.a<{ active?: boolean }>`

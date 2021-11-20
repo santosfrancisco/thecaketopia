@@ -1,9 +1,9 @@
 import React from "react";
 import * as Styled from "./styles";
 import HomeHeader from "../../components/HomeHeader";
-import PostPreview from "../../components/PostPreview";
+import PostItem from "../../components/PostItem";
 import styled from "styled-components";
-import { PostInfoContent } from "../../components/PostPreview/styles";
+// import { PostInfoContent } from "../../components/PostItem/styles";
 import { config } from "react-awesome-styled-grid";
 
 type Post = {
@@ -38,7 +38,7 @@ const Home: React.FC<HomeProps> = ({ posts }) => {
           {morePosts.length > 0 && <MoreStories posts={morePosts} />} */}
       <Styled.PostsWrapper>
         {posts.map((post) => (
-          <PostPreview
+          <PostItem
             key={post.slug}
             date={post.date}
             excerpt={post.excerpt}

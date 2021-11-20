@@ -6,11 +6,11 @@ export const Container = styled.div`
   flex-direction: column;
   & + & {
     margin-top: 32px;
+    ${(props) => config(props).media["sm"]`
+      margin-top: 0;
+      margin-left: 32px;
+    `}
   }
-  ${(props) => config(props).media["sm"]`
-  flex-direction: row;
-    
-  `}
 `;
 
 export const CoverImageWrapper = styled.div`
@@ -18,30 +18,15 @@ export const CoverImageWrapper = styled.div`
   img {
     border-radius: 4px;
   }
-  ${(props) => config(props).media["sm"]`
-  width: 50%;
-  `}
 `;
 export const PostInfo = styled.div`
   position: relative;
   width: 100%;
-  ${(props) => config(props).media["sm"]`
-  width: 50%;
-    
-  `}
 `;
 
 export const PostInfoContent = styled.div`
   padding: 12px;
   background-color: var(--white);
-
-  ${(props) => config(props).media["sm"]`
-  position: absolute;
-  left: -80px;
-  top: 50%;
-  transform: translateY(-50%);
-    
-  `}
 `;
 
 export const DateWrapper = styled.div`
@@ -59,33 +44,5 @@ export const Title = styled.h3`
   a {
     text-decoration: none;
     color: var(--primary-color);
-  }
-`;
-
-export const Excerpt = styled.p`
-  font-size: 14px;
-  line-height: 17px;
-  color: var(--primary-color);
-  margin-top: 24px;
-`;
-
-export const ActionsWrapper = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 16px;
-`;
-
-export const Button = styled.button`
-  border-radius: 4px;
-  width: 96px;
-  height: 36px;
-  background-color: var(--primary-color);
-  color: var(--white);
-  font-size: 14px;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  &:hover {
-    filter: brightness(0.8);
   }
 `;

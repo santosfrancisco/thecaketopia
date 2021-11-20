@@ -8,13 +8,7 @@ import React from "react";
 import { colors } from "../../styles/colors";
 import Share from "../Share";
 
-export default function MoreStories({
-  title,
-  coverImage,
-  date,
-  excerpt,
-  slug,
-}) {
+export default function PostItem({ title, coverImage, date, excerpt, slug }) {
   return (
     <Styled.Container>
       <Styled.CoverImageWrapper>
@@ -34,6 +28,14 @@ export default function MoreStories({
               <a>{title}</a>
             </Link>
           </Styled.Title>
+          <Styled.Excerpt>{excerpt}</Styled.Excerpt>
+          <div>
+            <Styled.ActionsWrapper className="post-preview__actions">
+              <Link as={`/posts/${slug}`} href="/posts/[slug]">
+                <Styled.Button>Ler</Styled.Button>
+              </Link>
+            </Styled.ActionsWrapper>
+          </div>
         </Styled.PostInfoContent>
       </Styled.PostInfo>
     </Styled.Container>
