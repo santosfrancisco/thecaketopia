@@ -8,6 +8,7 @@ export default function MoreStories({ posts }) {
       <Styled.PostsWrapper>
         {posts.map(({ slug, title, coverImage, excerpt, date }) => (
           <PostPreview
+            key={slug}
             slug={slug}
             title={title}
             coverImage={coverImage}

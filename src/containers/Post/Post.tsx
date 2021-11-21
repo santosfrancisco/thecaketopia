@@ -4,10 +4,10 @@ import ErrorPage from "next/error";
 import PostBody from "../../components/PostBody";
 import MoreStories from "../../components/MoreStories";
 import PostHeader from "../../components/PostHeader";
-import Comments from "../../components/comments";
+import Comments from "../../components/Comments";
 import Layout from "../../components/Layout";
 import Head from "next/head";
-import Form from "../../components/form";
+import Form from "../../components/Form";
 import { imageBuilder } from "../../../lib/sanity";
 import React from "react";
 import Meta from "../../components/Meta";
@@ -33,8 +33,10 @@ const Post = ({ post, morePosts }) => {
         />
         <PostBody content={post.body} />
       </article>
-      <Separator />
-      <Share post={post} />
+      {/* <Separator /> */}
+      <div style={{ marginTop: 48 }}>
+        <Share post={post} />
+      </div>
       <Separator />
       {morePosts.length > 0 && (
         <>
