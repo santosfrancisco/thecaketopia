@@ -7,16 +7,20 @@ const Comments = ({ comments }) => {
   return (
     <Styled.Container>
       <Styled.Title>Comentários:</Styled.Title>
-      <ul>
-        {comments?.map(({ _id, _createdAt, name, email, comment }) => (
-          <Styled.CommentWrapper key={_id}>
-            <Styled.CommentAuthor>
-              <span>{name}</span> - <DateToNow dateString={_createdAt} />
-            </Styled.CommentAuthor>
-            <Styled.CommentContent>{comment}</Styled.CommentContent>
-          </Styled.CommentWrapper>
-        ))}
-      </ul>
+      {comments.length === 0 ? (
+        <Styled.EmptyContainer>Nenhum comentário ainda</Styled.EmptyContainer>
+      ) : (
+        <ul>
+          {comments?.map(({ _id, _createdAt, name, email, comment }) => (
+            <Styled.CommentWrapper key={_id}>
+              <Styled.CommentAuthor>
+                <span>{name}</span> - <DateToNow dateString={_createdAt} />
+              </Styled.CommentAuthor>
+              <Styled.CommentContent>{comment}</Styled.CommentContent>
+            </Styled.CommentWrapper>
+          ))}
+        </ul>
+      )}
       <Separator style={{ margin: "1em 0" }} />
     </Styled.Container>
   );

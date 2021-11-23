@@ -1,12 +1,19 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import * as Styled from "./styles";
+
+type formDataType = {
+  name: string;
+  email: string;
+  comment: string;
+};
 
 export default function Form({ _id }) {
-  const [formData, setFormData] = useState();
+  const [formData, setFormData] = useState<formDataType>();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = async (data) => {
+  const onSubmit = async (data: formDataType) => {
     setIsSubmitting(true);
     let response;
     setFormData(data);
@@ -24,71 +31,67 @@ export default function Form({ _id }) {
   };
 
   if (isSubmitting) {
-    return <h3>Submitting comment…</h3>;
+    return <Styled.Text>Aguarde... Enviando seu comentário</Styled.Text>;
   }
   if (hasSubmitted) {
     return (
       <>
-        <h3>Thanks for your comment!</h3>
-        <ul>
-          <li>
-            Name: {formData.name} <br />
-            Email: {formData.email} <br />
-            Comment: {formData.comment}
-          </li>
-        </ul>
+        <Styled.Text>
+          Obrigado pelo comentário! Em breve ele aparecerá aqui
+        </Styled.Text>
+        <Styled.Text>
+          Nome: {formData.name} <br />
+          Email: {formData.email} <br />
+          Comentário: {formData.comment}
+        </Styled.Text>
       </>
     );
   }
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="w-full max-w-lg"
-      disabled
-    >
-      <input {...register("_id")} type="hidden" name="_id" value={_id} />
-      <label className="block mb-5">
-        <span className="text-gray-700">Name</span>
-        <input
-          name="name"
-          {...register("name", {
-            required: true,
-          })}
-          className="shadow border rounded py-2 px-3 form-input mt-1 block w-full"
-          placeholder="John Appleseed"
-        />
-      </label>
-      <label className="block mb-5">
-        <span className="text-gray-700">Email</span>
-        <input
-          name="email"
-          type="email"
-          {...register("email", {
-            required: true,
-          })}
-          className="shadow border rounded py-2 px-3 form-input mt-1 block w-full"
-          placeholder="your@email.com"
-        />
-      </label>
-      <label className="block mb-5">
-        <span className="text-gray-700">Comment</span>
-        <textarea
-          {...register("comment", {
-            required: true,
-          })}
-          name="comment"
-          className="shadow border rounded py-2 px-3  form-textarea mt-1 block w-full"
-          rows="8"
-          placeholder="Enter some long form content."
-        ></textarea>
-      </label>
-      {/* errors will return when field validation fails  */}
-      {/* {errors.exampleRequired && <span>This field is required</span>} */}
-      <input
-        type="submit"
-        className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-      />
-    </form>
+    <>
+      <Styled.Title>Deixe o seu comentário</Styled.Title>
+      <Styled.Form onSubmit={handleSubmit(onSubmit)}>
+        <input {...register("_id")} type="hidden" name="_id" value={_id} />
+        <Styled.Label>
+          <Styled.LabelText>Nome</Styled.LabelText>
+          <Styled.Input
+            name="name"
+            {...register("name", {
+              required: true,
+            })}
+            placeholder="Qual seu nome?"
+          />
+        </Styled.Label>
+        <Styled.Label>
+          <Styled.LabelText>Email</Styled.LabelText>
+          <Styled.Input
+            name="email"
+            type="email"
+            {...register("email", {
+              required: true,
+            })}
+            placeholder="Qual seu email?"
+          />
+          <Styled.HelperText>
+            *Não se preocupe, não mostraremos seu email no site
+          </Styled.HelperText>
+        </Styled.Label>
+        <Styled.Label>
+          <Styled.LabelText>Comentário</Styled.LabelText>
+          <Styled.TextArea
+            {...register("comment", {
+              required: true,
+            })}
+            name="comment"
+            rows={8}
+            placeholder="O que gostaria de nos falar?"
+          ></Styled.TextArea>
+        </Styled.Label>
+        {/* errors will return when field validation fails  */}
+        {/* {errors.exampleRequired && <span>This field is required</span>} */}
+        <Styled.SubmitButton type="submit">Comentar</Styled.SubmitButton>
+      </Styled.Form>
+    </>
   );
 }

@@ -22,3 +22,7 @@ export const CommentWrapper = styled.li`
 export const CommentContent = styled.p`
   color: var(--primary-color);
 `;
+
+export const EmptyContainer = styled.div`
+  color: var(--primary-color);
+`;

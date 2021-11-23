@@ -14,8 +14,15 @@ export default createGlobalStyle`
     --black: ${colors.black};
   }
 
-  body {
+  html, body {
     font-family: 'Lato', sans-serif;
+  }
+
+  button, a, input, textarea {
+    &:focus-visible {
+      border: 1px solid transparent;
+      outline: 2px solid var(--darken-primary-color);
+    }
   }
 
 `;
