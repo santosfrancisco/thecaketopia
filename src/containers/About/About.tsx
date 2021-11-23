@@ -11,7 +11,7 @@ function About({ author }) {
   return (
     <Styled.Container>
       <Styled.ProfileImageWrapper>
-        <Styled.ProfileImage src="/ka.png" />
+        <Styled.ProfileImage src={author.authorImage || ""} />
       </Styled.ProfileImageWrapper>
       <Styled.Title>
         Olá! Me chamo <Styled.Hightlight>{author.name}</Styled.Hightlight>
