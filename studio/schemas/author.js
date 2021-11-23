@@ -33,10 +33,24 @@ export default {
         {
           title: 'Block',
           type: 'block',
-          styles: [{title: 'Normal', value: 'normal'}],
-          lists: [],
+          
         },
       ],
+    },
+    {
+      name: 'facebook',
+      title: 'Facebook',
+      type: 'string',
+    },
+    {
+      name: 'instagram',
+      title: 'Instagram',
+      type: 'string',
+    },
+    {
+      name: 'linkedin',
+      title: 'Linkedin',
+      type: 'string',
     },
   ],
   preview: {
