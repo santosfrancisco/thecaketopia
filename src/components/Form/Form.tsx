@@ -12,7 +12,7 @@ export default function Form({ _id }) {
   const [formData, setFormData] = useState<formDataType>();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [hasSubmitted, setHasSubmitted] = useState(false);
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit } = useForm();
   const onSubmit = async (data: formDataType) => {
     setIsSubmitting(true);
     let response;
@@ -21,7 +21,6 @@ export default function Form({ _id }) {
       response = await fetch("/api/createComment", {
         method: "POST",
         body: JSON.stringify(data),
-        type: "application/json",
       });
       setIsSubmitting(false);
       setHasSubmitted(true);
