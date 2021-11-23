@@ -1,5 +1,5 @@
 import React from "react";
-import Date from "../Date";
+import { DateToNow } from "../Date";
 import { Separator } from "../Separator/Separator";
 import * as Styled from "./styles";
 
@@ -9,14 +9,12 @@ const Comments = ({ comments }) => {
       <Styled.Title>Comentários:</Styled.Title>
       <ul>
         {comments?.map(({ _id, _createdAt, name, email, comment }) => (
-          <li key={_id}>
-            <Separator style={{ margin: "1em 0" }} />
+          <Styled.CommentWrapper key={_id}>
             <Styled.CommentAuthor>
-              <span>{name}</span> (
-              <Date dateString={_createdAt} />)
+              <span>{name}</span> - <DateToNow dateString={_createdAt} />
             </Styled.CommentAuthor>
             <Styled.CommentContent>{comment}</Styled.CommentContent>
-          </li>
+          </Styled.CommentWrapper>
         ))}
       </ul>
       <Separator style={{ margin: "1em 0" }} />

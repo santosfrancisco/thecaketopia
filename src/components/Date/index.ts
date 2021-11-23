@@ -1,1 +1,1 @@
-export { default } from "./Date";
+export { default, DateToNow } from "./Date";
