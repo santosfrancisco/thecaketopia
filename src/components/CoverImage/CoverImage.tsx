@@ -1,5 +1,4 @@
 import Link from "next/link";
-// import { imageBuilder } from "../../../lib/sanity";
 
 type CoverImageProps = {
   title: string;
@@ -10,8 +9,6 @@ type CoverImageProps = {
 export default function CoverImage({ title, url, slug }: CoverImageProps) {
   const image = (
     <img
-      // width={1240}
-      // height={540}
       alt={`Cover Image for ${title}`}
       style={{ width: "100%", minHeight: 258, objectFit: "cover" }}
       src={url}

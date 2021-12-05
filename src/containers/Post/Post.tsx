@@ -1,11 +1,7 @@
-import { useRouter } from "next/router";
-import ErrorPage from "next/error";
-// import Container from "../../components/Container";
 import PostBody from "../../components/PostBody";
 import MoreStories from "../../components/MoreStories";
 import PostHeader from "../../components/PostHeader";
 import Comments from "../../components/Comments";
-import Layout from "../../components/Layout";
 import Head from "next/head";
 import Form from "../../components/Form";
 import { imageBuilder } from "../../../lib/sanity";
@@ -15,10 +11,6 @@ import Share from "../../components/Share";
 import { Separator } from "../../components/Separator/Separator";
 
 const Post = ({ post, morePosts }) => {
-  // const router = useRouter();
-  // if (!router.isFallback && !post?.slug) {
-  //   return <ErrorPage statusCode={404} />;
-  // }
   return (
     <>
       <article>
@@ -33,7 +25,6 @@ const Post = ({ post, morePosts }) => {
         />
         <PostBody content={post.body} />
       </article>
-      {/* <Separator /> */}
       <div style={{ marginTop: 48 }}>
         <Share post={post} />
       </div>

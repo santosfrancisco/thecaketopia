@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BsLink45Deg, BsCheckCircle } from "react-icons/bs";
+import { BsLink45Deg } from "react-icons/bs";
 import { colors } from "../../styles/colors";
 import { Button } from "./styles";
 

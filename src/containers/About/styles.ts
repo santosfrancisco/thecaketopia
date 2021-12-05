@@ -5,7 +5,12 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
-export const ProfileImage = styled.img``;
+export const ProfileImage = styled.img`
+  width: 250px;
+  height: 250px;
+  border-radius: 125px;
+  object-fit: cover;
+`;
 
 export const ProfileImageWrapper = styled.div`
   display: flex;

@@ -18,12 +18,10 @@ const StyledFooter = styled.footer`
   margin-top: 24px;
 `;
 
-const StyledLink = styled.a``;
-
-export default function Footer({ author }) {
+export default function Footer() {
   return (
     <StyledFooter>
-      <Copyright>©2021 Karina Mesquita</Copyright>
+      <Copyright>©{new Date().getFullYear()} Karina Mesquita</Copyright>
     </StyledFooter>
   );
 }

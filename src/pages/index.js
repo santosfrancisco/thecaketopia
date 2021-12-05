@@ -2,12 +2,10 @@ import React from "react";
 import Layout from "../components/Layout";
 import Pagination from "../components/Pagination";
 import { getAllPostsForHome, getPostsCount } from "../../lib/api";
-import Head from "next/head";
 import Home from "../containers/Home";
 import Meta from "../components/Meta";
 import { useRouter } from "next/router";
 import { POSTS_PER_PAGE } from "../../lib/constants";
-import { IoMdArrowRoundBack, IoMdArrowRoundForward } from "react-icons/io";
 
 export default function Index({ initialPosts, postsCount, preview }) {
   const { query } = useRouter();
@@ -17,9 +15,6 @@ export default function Index({ initialPosts, postsCount, preview }) {
   return (
     <>
       <Layout preview={preview}>
-        <Head>
-          <title>The Caketopia</title>
-        </Head>
         <Meta />
         <Home posts={posts} />
         <Pagination
